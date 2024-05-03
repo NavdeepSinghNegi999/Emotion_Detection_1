@@ -16,7 +16,7 @@ showfileUploaderEncoding = False
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = load_model("ResNet50_model.keras")
+    model = keras.models.load_model("ResNet50_model.keras")
     model._make_predict_function()
     model.summary()
     session = K.get_session()
