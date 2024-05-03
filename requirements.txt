@@ -1,3 +1,6 @@
-keras
-streamlit==1.33.0
-tensorflow
+numpy~=1.21.2
+streamlit~=1.33.0
+keras~=2.4.3
+opencv-contrib-python-headless
+tensorflow-cpu
+streamlit_webrtc
