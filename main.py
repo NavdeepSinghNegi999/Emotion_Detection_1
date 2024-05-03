@@ -6,9 +6,10 @@ import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
 
 
-st.set_option('deprecation.showfileUploaderEncoding', False)
-showfileUploaderEncoding = False
-@st.cache(allow_output_mutation=True)
+# st.set_option('deprecation.showfileUploaderEncoding', False)
+# showfileUploaderEncoding = False
+# @st.cache(allow_output_mutation=True)
+
 def load_my_model():
     model = tf.keras.models.load_model("ResNet50_model.keras")
     return model
