@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-from keras.models import load_model
+import keras
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
