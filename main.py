@@ -4,12 +4,13 @@ import tensorflow as tf
 # import numpy as np
 # import cv2
 # from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
+from keras.models import load_model
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('ResNet50_model.keras')
+    model = load_model('ResNet50_model.keras')
     return model
 model = load_model()
 
