@@ -7,10 +7,10 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfigura
 # st.set_option('deprecation.showfileUploaderEncoding', False)
 # showfileUploaderEncoding = False
 # @st.cache(allow_output_mutation=True)
-# def load_model():
-#     model = tf.keras.models.load_model(r'ResNet50_model.keras')
-#     return model
-# model = load_model()
+def load_model():
+    model = tf.keras.models.load_model(r'ResNet50_model.keras')
+    return model
+model = load_model()
 
 
 def index_to_emotion(index):
