@@ -10,7 +10,7 @@ showfileUploaderEncoding = False
 def load_model():
     model = tf.keras.models.load_model(r'ResNet50_model.keras')
     return model
-# model = load_model()
+model = load_model()
 
 
 def index_to_emotion(index):
@@ -59,10 +59,9 @@ class FaceEmotion(VideoTransformerBase):
                 roi = tf.keras.preprocessing.image.img_to_array(roi)
                 roi = np.expand_dims(roi, axis=0)
                 
-                # prediction = model.predict(roi)[0]
-                # result_index = int(np.argmax(prediction))
-                # output = index_to_emotion(result_index)
-                output = "hello"
+                prediction = model.predict(roi)[0]
+                result_index = int(np.argmax(prediction))
+                output = index_to_emotion(result_index)
                 
             
             label_position = (x, y)
@@ -86,19 +85,19 @@ if(app_mode == "Image Emotion Prediction"):
     
     if(st.button("Predict")):
         st.write("Our Prediction")
-        # result_index  = model_prediction(test_image)
-        # result = index_to_emotion(result_index)
+        result_index  = model_prediction(test_image)
+        result = index_to_emotion(result_index)
         result = "happy"
         st.success(f"{result}")
         
         
-# if(app_mode == "Live emotion Prediction"):
-#     st.header("Emotion Detection")
+if(app_mode == "Live emotion Prediction"):
+    st.header("Emotion Detection")
     
     
-#     st.title("Live Video Feed")
-#     webrtc_streamer(key="example", mode = WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
-#                         video_processor_factory = FaceEmotion)
+    st.title("Live Video Feed")
+    webrtc_streamer(key="example", mode = WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
+                        video_processor_factory = FaceEmotion)
     
     
     
