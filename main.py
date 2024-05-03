@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-import cv2
+# import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
 
 # st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -69,26 +69,26 @@ def index_to_emotion(index):
 
 #         return img
 
-# #sidebar
-# st.sidebar.title("Dashboard")
-# app_mode = st.sidebar.selectbox("Select Page", ["Image Emotion Prediction", "Live emotion Prediction"])
+#sidebar
+st.sidebar.title("Dashboard")
+app_mode = st.sidebar.selectbox("Select Page", ["Image Emotion Prediction", "Live emotion Prediction"])
 
-# # Home Page
-# if(app_mode == "Image Emotion Prediction"):
-#     st.header("Emotion Detection")
+# Home Page
+if(app_mode == "Image Emotion Prediction"):
+    st.header("Emotion Detection")
     
-#     # Load image
-#     test_image = st.file_uploader("Choose an Image")
+    # Load image
+    test_image = st.file_uploader("Choose an Image")
     
-#     if(st.button("Show Image")):
-#         st.image(test_image, use_column_width=True)
+    if(st.button("Show Image")):
+        st.image(test_image, use_column_width=True)
     
-#     if(st.button("Predict")):
-#         st.write("Our Prediction")
-#         result_index  = model_prediction(test_image)
-#         result = index_to_emotion(result_index)
-#         result = "happy"
-#         st.success(f"{result}")
+    if(st.button("Predict")):
+        st.write("Our Prediction")
+        # result_index  = model_prediction(test_image)
+        # result = index_to_emotion(result_index)
+        result = "happy"
+        st.success(f"{result}")
         
         
 # if(app_mode == "Live emotion Prediction"):
