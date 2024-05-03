@@ -4,20 +4,20 @@ import numpy as np
 # import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
 
-# st.set_option('deprecation.showfileUploaderEncoding', False)
-# showfileUploaderEncoding = False
-# @st.cache(allow_output_mutation=True)
-# def load_model():
-#     model = tf.keras.models.load_model(r'ResNet50_model.keras')
-#     return model
-# model = load_model()
+st.set_option('deprecation.showfileUploaderEncoding', False)
+showfileUploaderEncoding = False
+@st.cache(allow_output_mutation=True)
+def load_model():
+    model = tf.keras.models.load_model(r'ResNet50_model.keras')
+    return model
+model = load_model()
 
 
-# def index_to_emotion(index):
-#     emotion_labels = {'angry': 0, 'disgust': 1, 'fear': 2, 'happy': 3, 'neutral': 4, 'sad': 5, 'surprise': 6}
-#     index_to_emotion = {index:emotion for emotion, index in emotion_labels.items()}
-#     emotion = index_to_emotion[index]
-#     return emotion
+def index_to_emotion(index):
+    emotion_labels = {'angry': 0, 'disgust': 1, 'fear': 2, 'happy': 3, 'neutral': 4, 'sad': 5, 'surprise': 6}
+    index_to_emotion = {index:emotion for emotion, index in emotion_labels.items()}
+    emotion = index_to_emotion[index]
+    return emotion
 
 
 # def model_prediction(test_image):
