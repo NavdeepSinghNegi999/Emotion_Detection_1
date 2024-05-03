@@ -1,4 +1,4 @@
-# import keras
+import keras
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -11,7 +11,7 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfigura
 # @st.cache(allow_output_mutation=True)
 
 def load_my_model():
-    model = tf.keras.models.load_model("ResNet50_model")
+    model = keras.models.load_model("ResNet50_model.keras")
     return model
 model = load_my_model()
 
