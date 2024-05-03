@@ -10,7 +10,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = load_model('ResNet50_model.keras')
+    model = load_model()
     return model
 model = load_model()
 
