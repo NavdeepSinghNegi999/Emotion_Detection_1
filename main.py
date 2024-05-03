@@ -4,14 +4,16 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-
+from keras_contrib.losses import import crf_loss
+from keras_contrib.metrics import crf_viterbi_accuracy
 
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
 @st.cache(allow_output_mutation=True)
 def load_my_model():
-    model = tf.keras.models.load_model("ResNet50_model.keras")
+    custom_objects={'CRF': CRF,'crf_loss': crf_loss,'crf_viterbi_accuracy':crf_viterbi_accuracy}
+    model = tf.keras.models.load_model("ResNet50_model.keras", custom_objects = custom_objects)
     return model
 model = load_my_model()
 
