@@ -4,7 +4,8 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-from keras import backend as K
+# from keras import backend as K
+from keras.models import model_from_json
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
@@ -23,6 +24,22 @@ showfileUploaderEncoding = False
 #     return model, session
 
 # model, session = load_model()
+
+
+
+
+json_file = open('model_json.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+model = model_from_json(loaded_model_json)
+
+# load weights into new model
+model.load_weights("ResNet50_model.keras")
+
+
+
+
+
 
 def index_to_emotion(index):
     emotion_labels = {'angry': 0, 'disgust': 1, 'fear': 2, 'happy': 3, 'neutral': 4, 'sad': 5, 'surprise': 6}
