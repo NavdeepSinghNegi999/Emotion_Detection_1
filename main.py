@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-from keras_contrib.losses import import crf_loss
+from keras_contrib.losses import crf_loss
 from keras_contrib.metrics import crf_viterbi_accuracy
 
 
