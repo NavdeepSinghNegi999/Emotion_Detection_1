@@ -4,40 +4,14 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration, VideoProcessorBase, WebRtcMode
-# from keras import backend as K
-from keras.models import model_from_json
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
-# @st.cache(allow_output_mutation=True)
-# def load_model():
-#     model = keras.models.load_model("ResNet50_model.keras")
-#     return model
-# model = load_model()
-
-# @st.cache(allow_output_mutation=True)
-# def load_model():
-#     model = keras.models.load_model("ResNet50_model.keras")
-#     model._make_predict_function()
-#     model.summary()
-#     session = K.get_session()
-#     return model, session
-
-# model, session = load_model()
-
-
-
-
-json_file = open('model_json.json', 'r')
-loaded_model_json = json_file.read()
-json_file.close()
-model = model_from_json(loaded_model_json)
-
-# load weights into new model
-model.load_weights("ResNet50_model.keras")
-
-
-
+@st.cache(allow_output_mutation=True)
+def load_model():
+    model = keras.models.load_model("ResNet50_model.keras")
+    return model
+model = load_model()
 
 
 
