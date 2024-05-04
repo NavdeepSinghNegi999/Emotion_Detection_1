@@ -10,7 +10,8 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 showfileUploaderEncoding = False
 @st.cache(allow_output_mutation=True)
 def load_my_model():
-    model = keras.models.load_model("ResNet50_model.keras")
+    # model = keras.models.load_model("ResNet50_model.keras")
+    model = keras.models.load_model("Custom_CNN_model.h5")
     return model
 model = load_my_model()
 
